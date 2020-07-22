@@ -1,29 +1,13 @@
-const path = require("path");
-const htmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-
+const path = require('path');
 
 module.exports = {
-    mode:"development",
-    entry: {
-        app: "./src/index.js",
-        print: "./src/print.js"
-    },
-    devtool:'inline-source-map',
-    devServer: {
-        contentBase:"./dist",
-    },
-    plugins: [ 
-        new CleanWebpackPlugin({ 
-            cleanStaleWebpackAssets: false 
-        }),
-        new htmlWebpackPlugin({
-            title:"Output Management"
-        }),
-    ],
-    output:{
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname,"dist"),
-        publicPath: "/",
-    }
+  mode: 'development',
+  entry: {
+    index: './src/index.js',
+  },
+  output: {
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  }
 };
